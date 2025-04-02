@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const LoginLayout = styled.main`
   min-height: 100vh;
+  color: var(--color-brand-800);
   display: grid;
   grid-template-columns: 48rem;
   align-content: center;
@@ -11,7 +12,7 @@ const LoginLayout = styled.main`
 `;
 
 function Login() {
-  return <LoginLayout>Login</LoginLayout>;
+  return <div>login</div>;
 }
 
 export default Login;

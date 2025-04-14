@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import GlobalStyle from "./styles/GlobalStyle";
 import Heading from "./ui/Heading";
-import Dashboard from "../public/Dashboard";
+import Dashboard from "./features/dashboard/Dashboard";
 import Bookings from "./pages/Bookings";
 import Cabins from "./pages/Cabins";
 import Login from "./pages/Login";

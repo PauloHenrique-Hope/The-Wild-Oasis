@@ -17,6 +17,16 @@ import NewUsers from "./pages/Users";
 import Account from "./pages/Account";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   { path: "login", element: <Login /> },
@@ -36,23 +46,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <GlobalStyle />
       <RouterProvider router={router} />
-      {/* <BrowserRouter>
-        <Routes>
-          <Route index element={<Navigate replace to="dashboard" />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="bookings" element={<Bookings />} />
-          <Route path="login" element={<Login />} />
-          <Route path="cabins" element={<Cabins />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="newUsers" element={<NewUsers />} />
-          <Route path="account" element={<Account />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter> */}
-    </>
+    </QueryClientProvider>
   );
 }
 
